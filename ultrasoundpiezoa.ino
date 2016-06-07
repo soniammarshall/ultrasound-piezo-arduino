@@ -58,14 +58,27 @@ void loop() {
     Serial.println();
   }
 
-  if (cm > 0 && cm <= i) {
+  /*if (cm > 0 && cm <= i) {
     tone(piezoPin, notes[i - cm]);
   } else {
     noTone(piezoPin);
-  }
-
-
-  
+  }*/
+ 
+ boolean inRange = 0 < cm && cm <= (2 * i);
+ boolean even = cm%2 == 0;
+ 
+ int note;
+ 
+ if (inRange && even){
+        note = xxx;
+ } else if (inRange && !even) {
+        note = yyy;
+ }
+ 
+ if (inRange) {
+        tone(piezoPin, note);
+ } else {
+ }
   
   prevCm = cm;
 
