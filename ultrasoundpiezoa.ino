@@ -23,8 +23,7 @@ Connect the piezo to pin 8.
 const int trigPin = 2;
 const int echoPin = 4;
 const int piezoPin = 8;
-
-long prevCm = 0;
+ prevCm = 0;
 
 const int i = 20;
 
@@ -81,7 +80,7 @@ void loop() {
   
 }
 
-long microsecondsToCentimeters(long microseconds)
+float microsecondsToCentimeters(float microseconds)
 {
   return microseconds / 29 / 2;
 }
