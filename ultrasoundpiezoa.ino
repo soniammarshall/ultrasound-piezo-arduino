@@ -45,7 +45,7 @@ void loop() {
 
   cm = microsecondsToCentimeters(duration);
 
-  int note = 50 * cm;
+  int note = (50 * cm) - 50;
   
   if (cm != prevCm) {
     Serial.print("Distance: ")
