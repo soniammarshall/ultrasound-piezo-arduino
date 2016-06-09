@@ -23,21 +23,22 @@ Connect the piezo to pin 8.
 const int trigPin = 2;
 const int echoPin = 4;
 const int piezoPin = 8;
- prevCm = 0;
+
+float prevCm = 0;
 
 const int i = 20;
 
-int notes[i] = {
+/*int notes[i] = {
   262, 277, 294, 311, 330, 349, 370, 392, 415, 440,
   466, 494, 523, 554, 587, 622, 659, 698, 740, 784
-};
+};*/
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  long duration, cm;
+  float duration, cm;
 
   pinMode(trigPin, OUTPUT);
   digitalWrite(trigPin, LOW);
@@ -52,27 +53,13 @@ void loop() {
   cm = microsecondsToCentimeters(duration);
 
   if (cm != prevCm) {
-    Serial.print(cm);
+    Serial.print("%4.1f", cm);
     Serial.print("cm");
     Serial.println();
   }
  
- boolean inRange = 0 < cm && cm <= (2 * i);
- boolean even = cm%2 == 0;
- 
  int note;
  
- if (inRange && even){
-        note = i - (cm / 2);
- } else if (inRange && !even) {
-        note = i - ((cm + 1) / 2);
- }
- 
- if (inRange) {
-        tone(piezoPin, notes[note]);
- } else {
-        noTone(piezoPin);
- }
   
   prevCm = cm;
 
