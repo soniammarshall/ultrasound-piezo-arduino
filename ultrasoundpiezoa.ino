@@ -26,12 +26,7 @@ const int piezoPin = 8;
 
 float prevCm = 0;
 
-const int i = 20;
-
-/*int notes[i] = {
-  262, 277, 294, 311, 330, 349, 370, 392, 415, 440,
-  466, 494, 523, 554, 587, 622, 659, 698, 740, 784
-};*/
+int note;
 
 void setup() {
   Serial.begin(9600);
@@ -58,9 +53,10 @@ void loop() {
     Serial.println();
   }
  
- int note;
+ note = 100 * cm;
  
-  
+ tone(piezoPin, note);
+ 
   prevCm = cm;
 
   delay(100);
