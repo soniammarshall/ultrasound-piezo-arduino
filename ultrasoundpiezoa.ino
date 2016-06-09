@@ -45,13 +45,16 @@ void loop() {
 
   cm = microsecondsToCentimeters(duration);
 
+  int note = 50 * cm;
+  
   if (cm != prevCm) {
+    Serial.print("Distance: ")
     Serial.print(cm);
-    Serial.print("cm");
-    Serial.println();
+    Serial.print("cm\t");
+    Serial.print(Frequency:);
+    Serial.print(note);
+    Serial.println("Hz");
   }
- 
- int note = 50 * cm;
  
  boolean inRange = 0 < cm && cm < 40;
  
