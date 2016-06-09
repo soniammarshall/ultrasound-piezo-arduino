@@ -53,7 +53,7 @@ void loop() {
   cm = microsecondsToCentimeters(duration);
 
   if (cm != prevCm) {
-    Serial.print("%4.1f", cm);
+    Serial.print(cm);
     Serial.print("cm");
     Serial.println();
   }
