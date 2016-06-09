@@ -51,9 +51,9 @@ void loop() {
     Serial.println();
   }
  
- int note = 100 * cm;
+ int note = 50 * cm;
  
- boolean inRange = 0 < cm && cm < 20;
+ boolean inRange = 0 < cm && cm < 40;
  
  if (inRange) {
         tone(piezoPin, note);
