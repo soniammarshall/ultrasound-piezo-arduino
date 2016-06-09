@@ -26,8 +26,6 @@ const int piezoPin = 8;
 
 float prevCm = 0;
 
-int note;
-
 void setup() {
   Serial.begin(9600);
 }
@@ -53,9 +51,15 @@ void loop() {
     Serial.println();
   }
  
- note = 100 * cm;
+ int note = 100 * cm;
  
- tone(piezoPin, note);
+ boolean inRange = 0 < cm && cm < 20;
+ 
+ if (inRange) {
+        tone(piezoPin, note);
+ } else {
+        noTone(piezoPin);
+ }
  
   prevCm = cm;
 
